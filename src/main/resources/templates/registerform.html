@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="main.css"/>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<div th:replace="fragments/main :: links "></div>
+<body>
+
+		     
+<div th:replace="fragments/main :: myheader "></div>
+<div class="container ">
+    
+	<div class="row justify-content-center">
+	<div class="col">
+		<br>
+		<div class="card">
+		<article class="card-body">
+		<div th:if="${message}" class="alert alert-success" th:text="${}" role="alert">
+			 Post send sucesfully!
+			</div>
+		<h4 class="card-title mb-4 mt-1">Sign Up</h4>
+			 <form th:action="@{/register/save}" th:object="${user}" method="post" enctype="multipart/form-data">
+		    <div class="form-group">
+		    	<label>Your email</label>
+		        <input name="" class="form-control" placeholder="Email" th:field="*{email}"  type="text">
+		    </div> <!-- form-group// -->
+		      <div class="form-group">
+		    	<label>Your First Name</label>
+		        <input name="" class="form-control" placeholder="First name" th:field="*{firstname}"  type="text">
+		    </div> <!-- form-group// -->
+		         <div class="form-group">
+		    	<label>Your Last Name</label>
+		        <input name="" class="form-control" placeholder="Last name" th:field="*{lastname}"  type="text">
+		    </div> <!-- form-group// -->
+		    <div class="form-group">
+		    	<label>Your password</label>
+		        <input class="form-control" placeholder="Enter your password" th:field="*{password}" type="password" >
+		    </div> <!-- form-group// --> 
+		      <div class="form-group">
+		    	<label>Retype password</label>
+		        <input class="form-control" placeholder="******" type="password">
+		    </div> <!-- form-group// --> 
+		    <div class="form-group mt-3">
+            <label class="mr-2">Upload your Image:</label>
+            <input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg">
+          </div>
+		    <div class="form-group"> 
+		    <div class="checkbox">
+		      <label> <input type="checkbox"> Save password </label>
+		    </div> <!-- checkbox .// -->
+		    </div> <!-- form-group// -->  
+		    <div class="form-group">
+		        <button type="submit" class="btn btn-primary btn-block"> Register </button>
+		    </div> <!-- form-group// -->                                                           
+		</form>
+		</article>
+
+
+	</div> 
+</div> 
+</div>
+</div> 
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<div th:replace="fragments/main :: links "></div>
+<body>
+<div th:replace="fragments/main :: myheader "></div>
+<div class="container ">
+
+	<div class="row">
+	<div class="col">
+	<div th:if="${success}" class="alert alert-success" th:text="${success}" role="alert"></div>
+	<div th:if="${error}" class="alert alert-success" th:text="${error}" role="alert"></div>
+		<br>
+		<div class="card">
+		<article class="card-body">
+			<a href="" class="float-right btn btn-outline-primary">Sign up</a>
+			<h4 class="card-title mb-4 mt-1">Sign in</h4>
+			<p>
+			
+				<a th:href="@{/oauth2/authorization/google}" class="btn btn-block btn-outline-danger"> <i class="fab fa-google"></i>   Login via Google</a>
+				<a href="" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+			</p>
+			<hr>
+			<form  th:action="@{/doLogin}" method="post">
+		    <div class="form-group">
+		        <input class="form-control" name="email" placeholder="Email or login" type="email">
+		    </div> <!-- form-group// -->
+		    <div class="form-group">
+		        <input class="form-control"  name="pass" placeholder="Enter your password" type="text">
+		    </div> <!-- form-group// -->                                      
+		    <div class="row">
+		        <div class="col-md-6">
+		            <div class="form-group">
+		                <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+		            </div> <!-- form-group// -->
+		        </div>
+		        <div class="col-md-6 text-right">
+		            <a class="small" href="/forgot_password_form">Forgot password?</a>
+		        </div>                                            
+		    </div> <!-- .row// -->                                                                  
+		</form>
+		</article>
+		</div> <!-- card.// -->
+		
+	</div> 
+</div>  
+</div>  
+</body>
+</html>
